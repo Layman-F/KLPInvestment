@@ -1,0 +1,21 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+			<p>Do you really want to Fire <bold>"{{item}}"</bold>?</p>
+
+			<form action="{% url 'dismissworker' item.id %}" method="POST">
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'workers' %}">Cancel</a>
+
+				<input class="btn btn-danger" type="submit" name="Confirm" value="submit">
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<h4><u>Goats</u></h4>
+<br>
+<br>
+<br>
+<br>
+<p>KLP Investment has some healthy looking goats. The goats are bred mainly for meat and
+	<br>
+	milk purposes.
+</p>
+<br>
+<p>Two indegenous goat types that exist in the country also happen to be the two indegenous types found 
+	<br>in KLP Investment.
+</p>
+<h5>the Mashona</h5>
+<img src="{% static 'images/Mashona-Goat.png'%}" width="200" height="250">
+<p>The Mashona goat wish short horizontal ears,strong horns, short hair and have small legs and frames. The adult
+<br> goat weighs 30kg liveweight and is about 60cm tall at the withers.
+</p>
+<br>
+<h5>the Matebele</h5>
+<img src="{% static 'images/Matebele-Goat.png'%}" width="200" height="250">
+<p>The Matebele has long ears, some pendulous with turned up tips, and many with an intermediate type of ear,
+	<br>
+	varied hairiness and a wide range in coat colour. Adult liveweight for males is 50 to 55kg and females 39kg.
+	<br>
+	<i>Performance traits are presented in the following table</i>
+</p>
+<br>
+<table class="table table-sm" style="background-color: #909090">
+	<tr>
+		<th>Parameters</th>
+		<th>Matabele goat</th>
+		<th>Mashona goat</th>
+	</tr>
+	<tr>
+		<td>Age at first kidding(months)</td>
+		<td>23</td>
+		<td>18-19</td>
+	</tr>
+	<tr>
+		<td>Fertility</td>
+		<td>86.8</td>
+		<td>86.8</td>
+	</tr>
+</table>
+<hr>
+<br>
+<br>
+<br>
+<div class="row">
+	<div class="col-md-9">
+		<h5><u>Goats</u></h5>
+		<div class="card card-body" style="background-color: #909090">
+			<table>
+				<tr>
+					<th>Type</th>
+					<th>Number</th>
+					<th></th>
+				</tr>
+				{% for i in types %}
+				<tr>
+					<td>{{i.goat_type}}</td>
+					<td>{{i.number}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'updategoat' i.id %}">Update record</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+			<hr>
+		</div>
+	</div>
+</div>
+
+
+{% endblock content %}

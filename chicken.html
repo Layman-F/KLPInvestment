@@ -1,0 +1,49 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<h4><u>Chicken</u></h4>
+<br>
+<img src="{% static 'images/layers.png'%}">
+<br>
+<br>
+<br>
+<p>Chickens are the main part of the Kensington Livestock Palace project. 
+	<br>
+	The project was initially for rearing chickens(broilers) for market <br>
+	distribution but was later expanded to include some of the common livestock in Zimbabwe.
+	<br>
+</p>
+<br>
+<p>
+	Currently there are plenty of roadrunners which are being reared for the sake of their strong adaptation to
+	<br>
+	 the harsh weather characterised of storms and strong winds which usually takes place around this time of the year.
+	 <br>
+	 There are also layers which have been included in the farm to increase productivity as eggs are some of the
+	 <br>
+	 agricultural products with a very high market
+	</p>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-md-5">
+			<h5><i>Bird Types</i></h5>
+			<div class="card card-body" style="background-color: #909090">
+	<table class="table table-sm">
+		<tr>
+			<th>Type of Bird</th>&nbsp &nbsp
+			<th>Number of Birds</th>
+			<th></th>
+		</tr>
+		{% for i in types %}
+		<tr>
+			<td>{{i.bird_type}}</td>
+			<td>{{i.number}}</td>
+			<td><a class="btn btn-sm btn-info" href="{% url 'updatebird' i.id %}">Update record</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+</div>
+</div>
+{% endblock content %}

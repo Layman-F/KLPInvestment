@@ -1,0 +1,42 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<h4><u>Cattle</u></h4>
+<br>
+<img src="{% static 'images/cattle.jpg'%}" width="1500" height="500">
+<br>
+<p>In the African societies, cattle are a form of wealth measurement, <i>not the case</i> in 
+	<br>
+	KLP Investment! They are for draught power,mik for sale, manure,security and socio-cultural functions
+	<br>rank very highly. The types of cattle in the project
+	<br>
+	include the Mashona,Tuli,Charolais and the famous Afrikaner. 
+</p>
+<hr>
+<hr>
+<br>
+<br>
+<br>
+<div class="row">
+	<div class="col-md-9">
+		<h5><u>CATTLE</u></h5>
+		<div class="card card-body" style="background-color: #909090">
+			<table>
+				<tr>
+					<th>Type</th>
+					<th>Number</th>
+					<th></th>
+				</tr>
+				{% for i in types %}
+				<tr>
+					<td>{{i.beast_type}}</td>
+					<td>{{i.number}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'updatecow' i.id %}">Update record</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

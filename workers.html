@@ -1,0 +1,45 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<br>
+<br>
+<a class="btn btn-primary btn-sm btn-block" href="{% url 'addworker' %}">Click to hire a new worker</a>
+
+
+<hr>
+<br>
+<br>
+<br>
+<div class="row">
+	<div class="col-md-9">
+		<h5><u>Employed workers</u></h5>
+		<div class="card card-body" style="background-color: #909090">
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>Post</th>
+					<th>Date of Hire</th>
+					<th>Salary</th>
+					<th></th>
+					<th></th>
+				</tr>
+				{% for i in people %}
+				<tr>
+					<td>{{i.name}}</td>
+					<td>{{i.Phone}}</td>
+					<td>{{i.Post}}</td>
+					<td>{{i.date_of_hire}}</td>
+					<td>{{i.salary}}</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'updateworker' i.id %}" style="background-color: #10ff10">Update Info</a></td> 
+					<td><a class="btn btn-sm btn-info" href="{% url 'dismissworker' i.id %}" style="background-color: #10ff10">Fire</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content%}
+<!-- style="background-color: #e6e6ff"--> 
+<!--{% url 'update_worker' worker.id %} -->
+<!--{% url 'dismiss_worker' worker.id %}-->
